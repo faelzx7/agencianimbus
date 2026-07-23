@@ -153,6 +153,15 @@ aplicado por cima.
 6. Comentar apenas decisões de design não óbvias (por que esse espaçamento, por que essa cor) —
    não narrar o que o código já mostra.
 
+## Onde gravar (site publicável)
+
+Quando o pedido for um **site/landing page completo de um cliente** (não um componente solto),
+gravar os arquivos finais em `clientes/<slug>/saidas/site/` — um site estático pronto pra servir,
+com `index.html` na raiz dessa pasta. É desse caminho que o botão "Publicar" do NimbusOS lê pra
+subir na Vercel; fora dele, o deploy automático não acha o site. Para componente avulso ou
+protótipo parcial, gravar onde fizer sentido no contexto — a convenção acima vale só pro site
+inteiro que se pretende publicar.
+
 ## Regras
 
 - Responsivo por padrão, não como etapa separada depois.
