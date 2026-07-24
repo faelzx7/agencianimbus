@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcos Souza Nutricionista - Transformação em 12 Semanas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange-primary: #FF8A42;
+            --orange-light: #FFF4ED;
+            --white: #FAFAFA;
+            --gray-dark: #1A1A1A;
+            --gray-text: #2A2A2A;
+            --gray-light: #F5F5F5;
+            --spacing: 4px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            color: var(--gray-text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Poppins', 'Trebuchet MS', sans-serif;
+            font-size: clamp(1.9rem, 4.4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: calc(var(--spacing) * 3);
+        }
+
+        h2 {
+            font-family: 'Poppins', 'Trebuchet MS', sans-serif;
+            font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: calc(var(--spacing) * 4);
+        }
+
+        h3 {
+            font-family: 'Poppins', 'Trebuchet MS', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: calc(var(--spacing) * 3);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: calc(var(--spacing) * 3) calc(var(--spacing) * 6);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--orange-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #FF7420;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 138, 66, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--orange-primary);
+            border: 2px solid var(--orange-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--orange-light);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 calc(var(--spacing) * 4);
+        }
+
+        section {
+            padding: calc(var(--spacing) * 16) calc(var(--spacing) * 4);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: calc(var(--spacing) * 3) calc(var(--spacing) * 4);
+            border-bottom: 1px solid var(--gray-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--gray-dark);
+        }
+
+        nav a {
+            color: var(--gray-text);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 calc(var(--spacing) * 4);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--orange-primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--white) 0%, var(--orange-light) 100%);
+            padding: calc(var(--spacing) * 20) calc(var(--spacing) * 4);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            margin-bottom: calc(var(--spacing) * 4);
+        }
+
+        .hero .btn {
+            margin-right: calc(var(--spacing) * 2);
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing) * 8);
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--orange-primary), #FF6B00);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--gray-dark);
+            color: white;
+        }
+
+        .problem h2 {
+            color: var(--orange-primary);
+        }
+
+        .problem p {
+            color: #D0D0D0;
+        }
+
+        .problem-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing) * 4);
+            margin-top: calc(var(--spacing) * 6);
+        }
+
+        @media (min-width: 768px) {
+            .problem-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .problem-item {
+            padding: calc(var(--spacing) * 3);
+            background: rgba(255, 138, 66, 0.1);
+            border-left: 4px solid var(--orange-primary);
+            border-radius: 4px;
+        }
+
+        /* Method Section */
+        .method {
+            background: var(--orange-light);
+        }
+
+        .method-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing) * 6);
+            margin-top: calc(var(--spacing) * 8);
+        }
+
+        @media (min-width: 768px) {
+            .method-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .step {
+            background: white;
+            padding: calc(var(--spacing) * 5);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            background: var(--orange-primary);
+            color: white;
+            border-radius: 50%;
+            line-height: 48px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: calc(var(--spacing) * 3);
+        }
+
+        .step h3 {
+            color: var(--gray-dark);
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Differentials */
+        .differentials {
+            background: white;
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing) * 4);
+            margin-top: calc(var(--spacing) * 6);
+        }
+
+        @media (min-width: 768px) {
+            .differentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .differentials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .differential-card {
+            padding: calc(var(--spacing) * 4);
+            background: var(--gray-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--orange-primary);
+        }
+
+        .differential-card h3 {
+            color: var(--orange-primary);
+        }
+
+        .check {
+            color: var(--orange-primary);
+            font-weight: bold;
+            margin-right: calc(var(--spacing) * 1);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--gray-dark);
+            color: white;
+        }
+
+        .testimonials h2 {
+            color: var(--orange-primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing) * 6);
+            margin-top: calc(var(--spacing) * 8);
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonial {
+            padding: calc(var(--spacing) * 4);
+            background: rgba(255, 138, 66, 0.1);
+            border-radius: 8px;
+            border-top: 3px solid var(--orange-primary);
+        }
+
+        .testimonial p:first-child {
+            font-style: italic;
+            margin-bottom: calc(var(--spacing) * 3);
+            color: #D0D0D0;
+        }
+
+        .testimonial-author {
+            color: var(--orange-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Plans */
+        .plans {
+            background: white;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(var(--spacing) * 6);
+            margin-top: calc(var(--spacing) * 8);
+        }
+
+        @media (min-width: 768px) {
+            .plans-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .plan-card {
+            padding: calc(var(--spacing) * 6);
+            border: 2px solid var(--gray-light);
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .plan-card:hover {
+            border-color: var(--orange-primary);
+            box-shadow: 0 8px 24px rgba(255, 138, 66, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .plan-card.featured {
+            border-color: var(--orange-primary);
+            background: var(--orange-light);
+        }
+
+        .plan-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-dark);
+            margin-bottom: calc(var(--spacing) * 2);
+        }
+
+        .plan-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--orange-primary);
+            margin: calc(var(--spacing) * 3) 0;
+        }
+
+        .plan-price .old {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1rem;
+            display: block;
+            margin-bottom: calc(var(--spacing) * 1);
+        }
+
+        .plan-features {
+            text-align: left;
+            margin: calc(var(--spacing) * 4) 0;
+            font-size: 0.95rem;
+        }
+
+        .plan-features li {
+            list-style: none;
+            padding: calc(var(--spacing) * 2) 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+        }
+
+        .plan-features li:before {
+            content: "✓ ";
+            color: var(--orange-primary);
+            font-weight: bold;
+            margin-right: calc(var(--spacing) * 2);
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--gray-light);
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: calc(var(--spacing) * 4);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: calc(var(--spacing) * 4);
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: var(--orange-light);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 calc(var(--spacing) * 4) calc(var(--spacing) * 4);
+            color: #666;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--orange-primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Final */
+        .cta-final {
+            background: linear-gradient(135deg, var(--gray-dark) 0%, #2A2A2A 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            color: var(--orange-primary);
+        }
+
+        .cta-final p {
+            color: #D0D0D0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto calc(var(--spacing) * 6);
+        }
+
+        .cta-final .btn {
+            margin: 0 auto calc(var(--spacing) * 3);
+        }
+
+        .cta-subtext {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: calc(var(--spacing) * 4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            padding: calc(var(--spacing) * 8) calc(var(--spacing) * 4);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: #999;
+            margin: calc(var(--spacing) * 2) 0;
+        }
+
+        footer a {
+            color: var(--orange-primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-dark);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: calc(var(--spacing) * 3);
+            }
+
+            nav a {
+                margin: 0;
+                display: none;
+            }
+
+            nav a.active {
+                display: block;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            section {
+                padding: calc(var(--spacing) * 12) calc(var(--spacing) * 4);
+            }
+
+            .hero {
+                padding: calc(var(--spacing) * 12) calc(var(--spacing) * 4);
+            }
+
+            h1 {
+                margin-bottom: calc(var(--spacing) * 2);
+            }
+
+            h2 {
+                margin-bottom: calc(var(--spacing) * 3);
+            }
+        }
+
+        /* Utilities */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-4 {
+            margin-top: calc(var(--spacing) * 4);
+        }
+
+        .mb-4 {
+            margin-bottom: calc(var(--spacing) * 4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Marcos Souza</div>
+            <div>
+                <a href="#sobre">Sobre</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#planos">Planos</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Emagreça e fique sarado, sem sacrificar ganho de massa</h1>
+                <p>Especializado em hipertrofia e emagrecimento. Já transformei centenas de corpos em 12 semanas.</p>
+                <button class="btn btn-primary">Quero meu plano</button>
+                <button class="btn btn-secondary">Agendar consulta</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <h2>Quem sou Marcos Souza</h2>
+            <div class="about-content">
+                <div>
+                    <p><strong>Nutricionista formado e atleta de fisiculturismo por 8 anos.</strong> Não vendo teoria — vendo o que funciona porque já fiz comigo mesmo.</p>
+                    <p>Treinar é fácil (ou fica fácil). Nutrição é onde 90% das pessoas falha. Porque plano genérico não funciona com corpo genérico — funciona quando é feito especificamente pra você, ajustado toda semana com o que tá acontecendo de verdade.</p>
+                    <p><strong>Já orientei 300+ pessoas em transformações de 12 semanas.</strong> Entendo o que funciona pra atleta que quer ficar sarado, pra quem quer aparecer melhor na roupa, e pra quem não aguenta mais ganhar peso só de gordura.</p>
+                </div>
+                <div class="about-image">
+                    Foto de Marcos (in progress)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>Você já viveu isso?</h2>
+            <p>Você treina pesado, mas a barriguinha não sai. Ou come "direitinho" e não ganha músculos. Ou tenta emagrecer e perde músculo junto. A razão é simples: <strong>plano genérico não funciona com objetivo específico.</strong></p>
+            <div class="problem-list">
+                <div class="problem-item">
+                    <strong>Treina todo dia e nada muda na balança</strong>
+                </div>
+                <div class="problem-item">
+                    <strong>Sente fraco na musculação mesmo comendo "bem"</strong>
+                </div>
+                <div class="problem-item">
+                    <strong>Ganhou massa, mas ficou inchado e sem definição</strong>
+                </div>
+                <div class="problem-item">
+                    <strong>Tentou dieta restritiva e desistiu antes de 2 semanas</strong>
+                </div>
+                <div class="problem-item">
+                    <strong>Não sabe se come pouco ou muito — só sente culpa</strong>
+                </div>
+                <div class="problem-item">
+                    <strong>Já pagou nutricionista que foi embora após 3 semanas sem resultado</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Section -->
+    <section class="method" id="como-funciona">
+        <div class="container">
+            <h2 class="text-center">Como funciona o método</h2>
+            <p class="text-center">Esqueça dieta. Você vai ter um plano de nutrição. A diferença é simples: dieta é restrição. Plano é estrutura. Você come de verdade — frango, arroz, ovo — e sabe exatamente por quê.</p>
+
+            <div class="method-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnóstico exato</h3>
+                    <p>Primeira semana você responde questões sobre seu treino, alimentação atual, biotipo, o que já tentou. Marcos vê seu padrão.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Plano sob medida</h3>
+                    <p>Com base no diagnóstico, você recebe um plano mensal específico: quanto comer, em que horário, como ajustar nos fins de semana.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Ajuste semanal</h3>
+                    <p>Toda semana você envia foto, peso, medidas. Marcos revisa o plano — se não tá funcionando, muda. Nada de "volta na próxima mês".</p>
+                </div>
+            </div>
+
+            <p class="text-center mt-4"><strong>Resultado esperado: 12 semanas pra transformação visível (4-6kg de gordura perdida ou 3-5kg de massa ganha).</strong></p>
+        </div>
+    </section>
+
+    <!-- Differentials Section -->
+    <section class="differentials">
+        <div class="container">
+            <h2>O que muda quando você escolhe Marcos</h2>
+            <div class="differentials-grid">
+                <div class="differential-card">
+                    <h3><span class="check">✓</span> Dupla especialidade</h3>
+                    <p>Hipertrofia E emagrecimento dominadas. Não escolhe um.</p>
+                </div>
+                <div class="differential-card">
+                    <h3><span class="check">✓</span> Ajuste semanal real</h3>
+                    <p>Não é app de IA. É Marcos lendo seus dados, mexendo no plano.</p>
+                </div>
+                <div class="differential-card">
+                    <h3><span class="check">✓</span> Sem modinha</h3>
+                    <p>Zero suplemento vendido. Foco em comida de verdade.</p>
+                </div>
+                <div class="differential-card">
+                    <h3><span class="check">✓</span> Prazo claro</h3>
+                    <p>12 semanas. Sabe quando vai ver resultado.</p>
+                </div>
+                <div class="differential-card">
+                    <h3><span class="check">✓</span> Acompanhamento para vida</h3>
+                    <p>Depois que termina, você conhece seu próprio corpo.</p>
+                </div>
+                <div class="differential-card">
+                    <h3><span class="check">✓</span> Taxa de retenção 95%</h3>
+                    <p>Quem entra, fica. Porque funciona.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="text-center">Quem já transformou</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p>"Perdi 6kg de gordura em 12 semanas e ganhei força. Nunca imaginei que era tão simples."</p>
+                    <div class="testimonial-author">Júlio, 34 anos • Treina 5 dias por semana</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Finalmente um nutricionista que entende de fisiculturismo. Ganhei 4kg de massa limpa."</p>
+                    <div class="testimonial-author">Beatriz, 28 anos • Atleta de fisiculturismo</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Peguei no padrão dele e continuo sozinho agora. Melhor investimento que fiz."</p>
+                    <div class="testimonial-author">Carlos, 42 anos • CrossFit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="planos">
+        <div class="container">
+            <h2 class="text-center">Escolha seu plano</h2>
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-name">Consulta Avulsa</div>
+                    <div class="plan-price">
+                        R$ 299
+                    </div>
+                    <ul class="plan-features">
+                        <li>Diagnóstico completo</li>
+                        <li>1 plano de nutrição</li>
+                        <li>Sem recorrência</li>
+                        <li>Teste sem compromisso</li>
+                    </ul>
+                    <button class="btn btn-secondary">Agendar consulta</button>
+                </div>
+
+                <div class="plan-card featured">
+                    <div class="plan-name">Plano 12 Semanas</div>
+                    <div class="plan-price">
+                        <span class="old">De R$ 1.200</span>
+                        R$ 799/mês
+                    </div>
+                    <ul class="plan-features">
+                        <li>Orientação completa</li>
+                        <li>Ajuste semanal</li>
+                        <li>Acompanhamento total</li>
+                        <li>Melhor custo-benefício</li>
+                    </ul>
+                    <button class="btn btn-primary">Quero começar</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-name">Plano 3 Meses</div>
+                    <div class="plan-price">
+                        <span class="old">De R$ 2.400</span>
+                        R$ 1.899
+                    </div>
+                    <ul class="plan-features">
+                        <li>Mesma orientação</li>
+                        <li>3 meses garantidos</li>
+                        <li>Desconto 21%</li>
+                        <li>Pague tudo de uma vez</li>
+                    </ul>
+                    <button class="btn btn-secondary">Quero começar</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: calc(var(--spacing) * 8); padding: calc(var(--spacing) * 4); background: var(--orange-light); border-radius: 8px;">
+                <h3 style="color: var(--gray-dark); margin-bottom: calc(var(--spacing) * 2);">Sua garantia</h3>
+                <p style="margin-bottom: 0; color: var(--gray-text);">Se em 4 semanas você não ver progresso — perda de gordura visível, ganho de força ou mudança de medidas — Marcos refaz o plano do zero ou devolve seu dinheiro. Sem burocracia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="text-center">Dúvidas frequentes</h2>
+
+            <div style="max-width: 700px; margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Funciona pra quem treina pouco ou não treina?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Sim, mas a nutrição que Marcos faz é otimizada pra quem treina. Se você treina 3-5 dias, funciona bem. Se não treina, ele vai indicar um educador físico da rede.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Quanto tempo demora pra ver resultado?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Foto e medidas em 4-6 semanas. Balança (se for seu objetivo) em 8-12 semanas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Preciso tomar suplemento?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Não. Marcos foca em comida. Se você quiser, ele recomenda o mínimo, mas não é obrigatório nem é vendido por ele.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>E depois? Fico dependente do plano?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Não. Depois de 12 semanas, você aprende como seu corpo funciona. Pode pedir orientações pontuais depois, mas a ideia é você ficar autossuficiente.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Qual é o horário de atendimento?</span>
+                        <span class="faq-icon">▼</span>
+                    </button>
+                    <div class="faq-answer">
+                        Grupo privado funciona 24h. Marcos responde até 24h depois de cada mensagem.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="cta-final" id="contato">
+        <div class="container">
+            <h2>Pronto pra transformar?</h2>
+            <p>Você já sabe que treino + nutrição certa = resultado. Agora é só estruturar nutrição. Marcos cuida disso.</p>
+            <button class="btn btn-primary">Quero meu plano</button>
+            <div class="cta-subtext">
+                Vagas limitadas a 10 clientes por mês. Próximas vagas disponíveis.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Marcos Souza Nutricionista</strong></p>
+            <p>Especializado em hipertrofia e emagrecimento</p>
+            <p>
+                <a href="https://instagram.com">Instagram</a> •
+                <a href="https://whatsapp.com">WhatsApp</a> •
+                <a href="mailto:contato@example.com">Email</a>
+            </p>
+            <p style="margin-top: calc(var(--spacing) * 6); font-size: 0.9rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: calc(var(--spacing) * 4);">
+                © 2026 Marcos Souza. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
