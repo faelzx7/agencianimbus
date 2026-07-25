@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivana Mara Advogados | Direito Empresarial, Administrativo e Contratual</title>
+  <meta name="description" content="Assessoria jurídica especializada em direito empresarial, administrativo, contratual, trabalhista, bancário e agronegócio. Soluções de compliance e gestão de riscos.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-white: #FAFAFA;
+      --color-black-soft: #1A1A1A;
+      --color-gray-dark: #2D2D2D;
+      --color-gray-medium: #6B6B6B;
+      --color-gray-light: #F5F5F5;
+      --color-red: #C53030;
+      --color-red-dark: #A71D1D;
+      --color-red-light: #FEE;
+
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Lato', sans-serif;
+
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-black-soft);
+      line-height: 1.6;
+      background: var(--color-white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-lg);
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--space-lg);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--space-md);
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: var(--space-md);
+    }
+
+    /* Navegação */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--color-white);
+      border-bottom: 1px solid #E8E8E8;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg) var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-black-soft);
+    }
+
+    .logo span {
+      color: var(--color-red);
+    }
+
+    nav ul {
+      display: none;
+      list-style: none;
+      gap: var(--space-lg);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-gray-medium);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--color-red);
+    }
+
+    .nav-cta {
+      background: var(--color-red);
+      color: white !important;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-red-dark);
+    }
+
+    @media (min-width: 768px) {
+      nav ul {
+        display: flex;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--color-gray-dark);
+      color: white;
+      padding: var(--space-3xl) var(--space-md);
+      margin-top: 60px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero h1 {
+      color: white;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero .highlight {
+      color: #FFB3B3;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #D9D9D9;
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--color-red);
+      color: white;
+      padding: var(--space-md) var(--space-2xl);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .hero-cta:hover {
+      background: var(--color-red-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      background: linear-gradient(135deg, rgba(197, 48, 48, 0.1), rgba(197, 48, 48, 0.05));
+      border-radius: 8px;
+      padding: var(--space-2xl);
+      text-align: center;
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-visual {
+        display: block;
+      }
+    }
+
+    .hero-visual .stat {
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-visual .number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--color-red);
+      font-weight: 700;
+    }
+
+    .hero-visual .label {
+      color: #BBB;
+      font-size: 0.9rem;
+    }
+
+    /* Seção Áreas */
+    .areas {
+      background: var(--color-white);
+      padding: var(--space-3xl) var(--space-md);
+    }
+
+    .areas-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-header h2 {
+      color: var(--color-black-soft);
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: var(--color-gray-medium);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (min-width: 768px) {
+      .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .areas-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .area-card {
+      background: var(--color-light-bg, white);
+      border: 1px solid #E8E8E8;
+      border-radius: 6px;
+      padding: var(--space-xl);
+      transition: all 0.3s;
+    }
+
+    .area-card:hover {
+      border-color: var(--color-red);
+      box-shadow: 0 4px 12px rgba(197, 48, 48, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .area-card h3 {
+      color: var(--color-black-soft);
+      margin-bottom: var(--space-md);
+    }
+
+    .area-card p {
+      font-size: 0.95rem;
+      color: var(--color-gray-medium);
+      line-height: 1.6;
+    }
+
+    .area-icon {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, rgba(197, 48, 48, 0.15), rgba(197, 48, 48, 0.05));
+      border-radius: 6px;
+      margin-bottom: var(--space-lg);
+      line-height: 40px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    /* Seção Diferenciais */
+    .differentials {
+      background: var(--color-gray-light);
+      padding: var(--space-3xl) var(--space-md);
+    }
+
+    .differentials-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .differentials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 768px) {
+      .differentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2xl);
+      }
+    }
+
+    .differential-item {
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    .differential-check {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--color-red);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .differential-text h3 {
+      color: var(--color-black-soft);
+      margin-bottom: var(--space-sm);
+    }
+
+    .differential-text p {
+      color: var(--color-gray-medium);
+      font-size: 0.95rem;
+    }
+
+    /* Seção CTA */
+    .cta-section {
+      background: var(--color-red);
+      color: white;
+      padding: var(--space-3xl) var(--space-md);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: var(--space-lg);
+    }
+
+    .cta-section p {
+      color: #FFD9D9;
+      font-size: 1.05rem;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: white;
+      color: var(--color-red);
+      padding: var(--space-md) var(--space-2xl);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-gray-dark);
+      color: #AAA;
+      padding: var(--space-2xl) var(--space-md);
+      font-size: 0.9rem;
+    }
+
+    footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 768px) {
+      footer-content {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .footer-section h4 {
+      color: white;
+      margin-bottom: var(--space-lg);
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-section a {
+      color: #AAA;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: var(--color-red);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: var(--space-2xl) auto 0;
+      padding-top: var(--space-2xl);
+      border-top: 1px solid #444;
+      text-align: center;
+      color: #777;
+    }
+
+    /* Tipografia Web Safe */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@400;500;600&display=swap');
+  </style>
+</head>
+<body>
+  <!-- Navegação -->
+  <header>
+    <nav>
+      <div class="logo">Ivana <span>Mara</span></div>
+      <ul>
+        <li><a href="#areas">Áreas de Prática</a></li>
+        <li><a href="#diferencial">Diferenciais</a></li>
+        <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div>
+        <h1>Assessoria Jurídica <span class="highlight">Especializada</span></h1>
+        <p>Soluções personalizadas em direito empresarial, administrativo, contratual, trabalhista, bancário e agronegócio. Compliance, gestão de riscos e proteção do seu patrimônio.</p>
+        <a href="#contato" class="hero-cta">Agendar Consulta</a>
+      </div>
+      <div class="hero-visual">
+        <div class="stat">
+          <div class="number">15+</div>
+          <div class="label">Anos de experiência</div>
+        </div>
+        <div class="stat">
+          <div class="number">500+</div>
+          <div class="label">Clientes atendidos</div>
+        </div>
+        <div class="stat">
+          <div class="number">98%</div>
+          <div class="label">Taxa de satisfação</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas de Prática -->
+  <section class="areas" id="areas">
+    <div class="areas-content">
+      <div class="section-header">
+        <h2>Áreas de Prática</h2>
+        <p>Expertise em múltiplas especialidades jurídicas para atender empresas e indivíduos em diferentes situações</p>
+      </div>
+
+      <div class="areas-grid">
+        <div class="area-card">
+          <div class="area-icon">⚖️</div>
+          <h3>Direito Empresarial</h3>
+          <p>Assessoria em contratual, bancário, propriedade intelectual, fusões e aquisições, societário e tributário.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">📋</div>
+          <h3>Direito Administrativo</h3>
+          <p>Processo Administrativo Disciplinar (PAD), concursos públicos e responsabilidade civil perante a administração.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">📝</div>
+          <h3>Direito Contratual</h3>
+          <p>Análise, elaboração e revisão de contratos em todas as suas modalidades e resolução de conflitos contratuais.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">👥</div>
+          <h3>Direito Civil</h3>
+          <p>Casamento, divórcio, filiação, herança, testamentos e responsabilidade civil e penal.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">🏢</div>
+          <h3>Direito Trabalhista</h3>
+          <p>Compliance trabalhista, vínculo de emprego, acidentes de trabalho e rescisão contratual.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">🏦</div>
+          <h3>Direito Bancário</h3>
+          <p>Financiamentos, empréstimos, ações judiciais bancárias e renegociação de dívidas.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">🛡️</div>
+          <h3>Direito do Consumidor</h3>
+          <p>Proteção contra cláusulas abusivas, defeitos de produtos e publicidade enganosa.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">🌾</div>
+          <h3>Direito do Agronegócio</h3>
+          <p>Assessoria a produtores rurais, contratos, holding familiar e recuperação judicial.</p>
+        </div>
+
+        <div class="area-card">
+          <div class="area-icon">🔒</div>
+          <h3>Compliance e Riscos</h3>
+          <p>Gestão de riscos, conformidade regulatória e proteção preventiva do seu negócio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="differentials" id="diferencial">
+    <div class="differentials-content">
+      <div class="section-header">
+        <h2>Por Que Nos Escolher</h2>
+        <p>Abordagem estratégica, resultado orientado e total dedicação ao seu caso</p>
+      </div>
+
+      <div class="differentials-grid">
+        <div class="differential-item">
+          <div class="differential-check">✓</div>
+          <div class="differential-text">
+            <h3>Experiência Comprovada</h3>
+            <p>Mais de 15 anos atuando em soluções jurídicas complexas e casos de alta relevância.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-check">✓</div>
+          <div class="differential-text">
+            <h3>Atendimento Personalizado</h3>
+            <p>Cada cliente recebe atenção dedicada com estratégia customizada para seu caso.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-check">✓</div>
+          <div class="differential-text">
+            <h3>Resposta Rápida</h3>
+            <p>Comunicação ágil e posicionamento estratégico em prazos que sua situação exige.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-check">✓</div>
+          <div class="differential-text">
+            <h3>Compliance Integrado</h3>
+            <p>Abordagem preventiva que protege seu patrimônio e reduz riscos futuros.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-check">✓</div>
+          <div class="differential-text">
+            <h3>Múltiplas Especialidades</h3>
+            <p>Expertise em diversas áreas do direito para solucionar casos multidisciplinares.</p>
+          </div>
+        </div>
+
+        <div class="differential-item">
+          <div class="differential-check">✓</div>
+          <div class="differential-text">
+            <h3>Transparência Total</h3>
+            <p>Comunicação clara sobre custos, prazos e estratégia desde a primeira consulta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section" id="contato">
+    <div class="cta-content">
+      <h2>Pronto Para Proteger Seus Direitos?</h2>
+      <p>Agende uma consulta estratégica e descubra como podemos ajudar seu negócio ou situação pessoal.</p>
+      <a href="mailto:contato@ivanamaraadvogados.com.br" class="cta-button">Enviar Email</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <footer-content>
+      <div class="footer-section">
+        <h4>Ivana Mara</h4>
+        <p>Assessoria jurídica especializada em proteção de direitos, compliance e gestão de riscos.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="#areas">Direito Empresarial</a></li>
+          <li><a href="#areas">Direito Administrativo</a></li>
+          <li><a href="#areas">Direito Contratual</a></li>
+          <li><a href="#areas">Direito Trabalhista</a></li>
+          <li><a href="#areas">Agronegócio</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@ivanamaraadvogados.com.br">contato@ivanamaraadvogados.com.br</a></li>
+          <li><a href="tel:+551140000000">(11) 4000-0000</a></li>
+          <li><a href="#">São Paulo, SP</a></li>
+        </ul>
+      </div>
+    </footer-content>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Ivana Mara Advogados. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
